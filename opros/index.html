@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#111111" />
+    <title>Командный опрос</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <noscript>
+      Для прохождения опроса требуется включённый JavaScript.
+    </noscript>
+
+    <header class="site-header" role="banner">
+      <div class="container">
+        <div class="brand">Опрос</div>
+      </div>
+    </header>
+
+    <main class="container" role="main">
+      <section class="card" aria-labelledby="survey-title">
+        <div class="progress" aria-hidden="true">
+          <div class="progress__bar" id="progressBar" style="width: 0%"></div>
+        </div>
+
+        <h1 id="survey-title" class="card__title">Небольшая проверка — и начнётся магия ✨</h1>
+        
+        <form id="surveyForm" novalidate>
+          <!-- Шаг 0: Приветствие -->
+          <section class="step step--active" data-step="0" aria-label="Приветствие">
+            <div class="step__content">
+              <p>Приветик! Нажмите «Начать», чтобы пройти короткий и красивый опрос.</p>
+            </div>
+            <div class="step__actions">
+              <button type="button" class="btn btn--primary" data-action="next">Начать</button>
+            </div>
+          </section>
+
+          <!-- Шаг 1: Напитки -->
+          <section class="step" data-step="1" aria-label="Какой наш любимый напиток?">
+            <fieldset class="field">
+              <legend class="field__legend">Какой наш любимый напиток? <span class="req">*</span></legend>
+              <div class="options options--cards" role="radiogroup" aria-required="true">
+                <label class="option-card">
+                  <input type="radio" name="drink" value="Шампанское" required />
+                  <div class="option-card__body">
+                    <div class="option-card__media" aria-hidden="true">
+						<img src="assets/q1_1.webp" alt="Шампанское" decoding="async" />
+					  </div>
+                    <div class="option-card__label">Шампанское</div>
+                  </div>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="drink" value="Чивас" required />
+                  <div class="option-card__body">
+                    <div class="option-card__media" aria-hidden="true">
+						<img src="assets/q1_3.webp" alt="Чивас" decoding="async" />
+					  </div>
+                    <div class="option-card__label">Чивас</div>
+                  </div>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="drink" value="Сидр" required />
+                  <div class="option-card__body">
+                    <div class="option-card__media" aria-hidden="true">
+						<img src="assets/q1_2.webp" alt="Сидр" decoding="async" />
+					  </div>
+                    <div class="option-card__label">Сидр</div>
+                  </div>
+                </label>
+              </div>
+              <p class="field__error" data-error-for="drink" aria-live="polite"></p>
+            </fieldset>
+            <div class="step__actions">
+              <button type="button" class="btn" data-action="back">Назад</button>
+              <button type="button" class="btn btn--primary" data-action="next">Далее</button>
+            </div>
+          </section>
+
+          <!-- Шаг 2: Обувь -->
+          <section class="step" data-step="2" aria-label="Какие педали мы выберем?">
+            <fieldset class="field">
+              <legend class="field__legend">Какие педали мы выберем? <span class="req">*</span></legend>
+              <div class="options options--cards" role="radiogroup" aria-required="true">
+                <label class="option-card">
+                  <input type="radio" name="shoes" value="Педали скоростные RedMi Poco x10 ultra Max (Розовые)" required />
+                  <div class="option-card__body">
+                    <div class="option-card__media" aria-hidden="true">
+						<img src="assets/q2_1.webp" alt="Педали скоростные" decoding="async" />
+					  </div>
+                    <div class="option-card__label">Педали скоростные RedMi Poco x10 ultra Max (Розовые)</div>
+                  </div>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="shoes" value="Турецкие гучи тапки" required />
+                  <div class="option-card__body">
+                    <div class="option-card__media" aria-hidden="true">
+						<img src="assets/q2_2.webp" alt="Турецкие гучи тапки" decoding="async" />
+					  </div>
+                    <div class="option-card__label">Турецкие гучи тапки</div>
+                  </div>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="shoes" value="Галоши" required />
+                  <div class="option-card__body">
+                    <div class="option-card__media" aria-hidden="true">
+						<img src="assets/q2_3.webp" alt="Галоши" decoding="async" />
+					  </div>
+                    <div class="option-card__label">Галоши</div>
+                  </div>
+                </label>
+              </div>
+              <p class="field__error" data-error-for="shoes" aria-live="polite"></p>
+            </fieldset>
+            <div class="step__actions">
+              <button type="button" class="btn" data-action="back">Назад</button>
+              <button type="button" class="btn btn--primary" data-action="next">Далее</button>
+            </div>
+          </section>
+
+          <!-- Шаг 3: Еда -->
+          <section class="step" data-step="3" aria-label="Что мы выберем на ужин?">
+            <fieldset class="field">
+              <legend class="field__legend">Что мы выберем на ужин? <span class="req">*</span></legend>
+              <div class="options options--cards" role="radiogroup" aria-required="true">
+                <label class="option-card">
+                  <input type="radio" name="dinner" value="Макдоналдс" required />
+                  <div class="option-card__body">
+                    <div class="option-card__media" aria-hidden="true">
+						<img src="assets/q3_1.webp" alt="Макдоналдс" decoding="async" />
+					  </div>
+                    <div class="option-card__label">Макдоналдс</div>
+                  </div>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="dinner" value="Крошка картошка" required />
+                  <div class="option-card__body">
+                    <div class="option-card__media" aria-hidden="true">
+						<img src="assets/q3_2.webp" alt="Крошка картошка" decoding="async" />
+					  </div>
+                    <div class="option-card__label">Крошка картошка</div>
+                  </div>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="dinner" value="Уебать утку с весла" required />
+                  <div class="option-card__body">
+                    <div class="option-card__media" aria-hidden="true">
+						<img src="assets/q3_3.webp" alt="Утка" decoding="async" />
+					  </div>
+                    <div class="option-card__label">Уебать утку с весла</div>
+                  </div>
+                </label>
+              </div>
+              <p class="field__error" data-error_for="dinner" aria-live="polite"></p>
+            </fieldset>
+            <div class="step__actions">
+              <button type="button" class="btn" data-action="back">Назад</button>
+              <button type="button" class="btn btn--primary" data-action="next">Далее</button>
+            </div>
+          </section>
+
+          <!-- Шаг 4: Решения -->
+          <section class="step" data-step="4" aria-label="Как теперь мы решаем вопросы?">
+            <fieldset class="field">
+              <legend class="field__legend">Как теперь мы решаем наши вопросы/проблемы? <span class="req">*</span></legend>
+              <div class="options options--cards" role="radiogroup" aria-required="true">
+                <label class="option-card">
+                  <input type="radio" name="decision" value="По отдельности" required disabled />
+                  <div class="option-card__body">
+                    <div class="option-card__media" aria-hidden="true">
+                      <div class="option-card__placeholder">Недоступно</div>
+                    </div>
+                    <div class="option-card__label">По отдельности</div>
+                  </div>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="decision" value="Как хотим" required disabled />
+                  <div class="option-card__body">
+                    <div class="option-card__media" aria-hidden="true">
+                      <div class="option-card__placeholder">Недоступно</div>
+                    </div>
+                    <div class="option-card__label">Как хотим</div>
+                  </div>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="decision" value="ВМЕСТЕ!" required />
+                  <div class="option-card__body">
+                    <div class="option-card__media" aria-hidden="true">
+						<img src="assets/q4_1.webp" alt="Вместе" decoding="async" />
+					  </div>
+                    <div class="option-card__label">ВМЕСТЕ!</div>
+                  </div>
+                </label>
+              </div>
+              <p class="field__error" data-error-for="decision" aria-live="polite"></p>
+            </fieldset>
+            <div class="step__actions">
+              <button type="button" class="btn" data-action="back">Назад</button>
+              <button type="submit" class="btn btn--primary">Отправить</button>
+            </div>
+          </section>
+
+          <!-- Шаг 5: Спасибо -->
+          <section class="step" data-step="5" aria-live="polite" aria-label="Готово">
+            <div class="thanks">
+              <div class="thanks__emoji" aria-hidden="true">✓</div>
+              <h1 class="thanks__headline">Ты ответила на все вопросы правильно!</h1>
+              <button type="button" class="btn btn--primary" id="showCollageBtn">СТАТЬ КОМАНДОЙ 💫</button>
+              <div class="collage" id="collage" style="display: none;">
+                <div class="collage__frame">
+                  <div class="collage__grid">
+                    <div class="collage__item">
+                      <img src="../collage/photo_2025-08-19_20-15-27.jpg" alt="Охота за утками" />
+                      <p class="collage__caption">Это я катаюсь на аттракционах с лучшей девушкой на планете</p>
+                    </div>
+                    <div class="collage__item">
+                      <img src="../collage/photo_2025-08-19_20-15-33.jpg" alt="Аттракционы" />
+                      <p class="collage__caption">Фото самой красивой девушки в крутом ресторане со вкусным пивом by Operator Vitalik</p>
+                    </div>
+                    <div class="collage__item">
+                      <img src="../collage/photo_2025-08-19_20-15-37.jpg" alt="Ресторан" />
+                      <p class="collage__caption">Это я на охоте за утками в сопровождении лучшей охотницы во вселенной (и очень вкусным чаем)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="go-outside-text" id="goOutsideText" style="display: none;">
+                <h2 class="go-outside-text__title">Выйди на улицу</h2>
+              </div>
+            </div>
+          </section>
+        </form>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html> 
